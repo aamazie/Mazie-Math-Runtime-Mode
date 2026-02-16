@@ -6,4 +6,4 @@ Current JIT, IEEE-754, and C propogate NaNs and infinities and exception handler
 
 The Mazie Math Runtime Mode will allow for longterm space technology.
 
-This mode is also called strict mode or identity-preserving mode.
+This mode is also called identity-preserving mode.
