@@ -1,4 +1,4 @@
-Mazie Math solves all errors in computational mathematics.
+Mazie Math solves all NaNs in computational mathematics.
 
 The Mazie Math axiom is a / 0 = a .
 
