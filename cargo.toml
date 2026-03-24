@@ -1,9 +1,0 @@
-[package]
-name = "mazie-runtime"
-version = "0.1.0"
-edition = "2021"
-description = "Policy-driven numeric runtime with configurable arithmetic semantics"
-license = "MIT"
-repository = "https://github.com/aamazie/mazie-runtime"
-
-[dependencies]
