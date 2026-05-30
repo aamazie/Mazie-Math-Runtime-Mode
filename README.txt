@@ -1,3 +1,5 @@
+DISCLAIMER: This software / library core is for demonstration purposes only for mathematics. The use of this runtime mode may conflict with other layers or usage of servers in development and cause conflicting paradigm issues. Please run with caution and understanding that most servers run on C still in 2026.
+
 Mazie Math solves all NaNs in computational mathematics.
 
 The Mazie Math axiom is a / 0 = a .
