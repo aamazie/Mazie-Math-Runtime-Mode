@@ -78,3 +78,7 @@ The library applies these rules when code calls its `add` and `div` methods. It 
 The Mazie rule handles the zero-divisor case. Other operations can still produce NaN or infinity when the selected mode allows them. Use strict mode or a custom policy if those results should be errors.
 ## Research
 The repository also contains papers discussing Mazie Math and its proposed applications. The Rust code provides an implementation for exploring and testing the division rule.
+
+To run a demo after testing, run:
+
+cargo run --quiet --example mode_demo
