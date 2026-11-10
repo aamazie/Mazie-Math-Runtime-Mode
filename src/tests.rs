@@ -64,3 +64,49 @@ fn div_by_zero_error() {
     let result = rt.div(a, z);
     assert!(result.is_err(), "Strict mode should error on division by zero");
 }
+
+#[test]
+fn mazie_mode_preserves_the_numerator_for_both_signed_zeros() -> MazieResult<()> {
+    let rt = MazieRuntime::mazie();
+
+    for divisor in [f64::from(0_i32), 0.0, -0.0] {
+        for numerator in [6.0, -6.0, 0.0, -0.0] {
+            let result = rt.div(rt.n(numerator), rt.n(divisor))?.unwrap();
+
+            // Bitwise comparison distinguishes +0.0 from -0.0.
+            assert_eq!(result.to_bits(), numerator.to_bits());
+        }
+    }
+
+    Ok(())
+}
+
+#[test]
+fn mazie_mode_uses_ordinary_division_for_small_nonzero_divisors() -> MazieResult<()> {
+    let rt = MazieRuntime::mazie();
+
+    for divisor in [f64::MIN_POSITIVE, -f64::MIN_POSITIVE] {
+        let result = rt.div(rt.n(6.0), rt.n(divisor))?.unwrap();
+        assert_eq!(result, 6.0 / divisor);
+    }
+
+    Ok(())
+}
+
+#[test]
+fn ieee_and_strict_modes_handle_both_signed_zeros() -> MazieResult<()> {
+    let ieee = MazieRuntime::ieee();
+    let strict = MazieRuntime::strict();
+
+    for (divisor, expected) in [(0.0, f64::INFINITY), (-0.0, f64::NEG_INFINITY)] {
+        assert_eq!(ieee.div(ieee.n(6.0), ieee.n(divisor))?.unwrap(), expected);
+        assert!(ieee.div(ieee.n(0.0), ieee.n(divisor))?.unwrap().is_nan());
+
+        assert!(matches!(
+            strict.div(strict.n(6.0), strict.n(divisor)),
+            Err(crate::MazieError::DivisionByZero { .. })
+        ));
+    }
+
+    Ok(())
+}
