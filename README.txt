@@ -1,6 +1,4 @@
-DISCLAIMER: This software / library core is for demonstration purposes only for mathematics. 
-
-The use of this runtime mode may conflict with other layers or usage of servers in development and cause conflicting paradigm issues. 
+DISCLAIMER: This software / library core works insofar as it has been tested. 
 
 Please run with caution and understanding that most servers run on C still in 2026.
 
