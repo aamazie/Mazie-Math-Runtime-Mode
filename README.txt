@@ -1,4 +1,3 @@
-This replaces all of README.txt. I kept your existing intro at the top and updated the sections below it for Finite Mazie and input validation. Open README.txt on GitHub, select all the existing text, and paste the entire block below.
 
 DISCLAIMER: This software / library core works insofar as it has been tested.
 Please run with caution and understanding that most servers run on C still in 2026.
