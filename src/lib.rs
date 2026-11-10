@@ -9,3 +9,6 @@ pub use mode::{MazieMode, Div0Policy, NonFinitePolicy};
 pub use runtime::MazieRuntime;
 pub use num::MazieNum;
 pub use hook::{MazieHook, Div0Counter};
+
+#[cfg(test)]
+mod tests;
